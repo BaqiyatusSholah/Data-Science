@@ -2,8 +2,15 @@ import streamlit as st
 import pickle
 import numpy as np
 
-pickle_in = open('classifier.pkl', 'rb')
-classifier = pickle.load(pickle_in)
+class CustomUnpickler(pickle.Unpickler):
+
+    def find_class(self, module, name):
+        if name == 'Manager':
+            from settings import Manager
+            return Manager
+        return super().find_class(module, name)
+
+classifier = CustomUnpickler(open('classifier.pkl', 'rb')).load()
 
 st.title("Apakah Anda Ketergantungan Terhadap Handphone?")
 
