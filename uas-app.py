@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+from xgboost import XGBClassifier
 
 # Fungsi untuk memuat model
 def load_model(file_path):
