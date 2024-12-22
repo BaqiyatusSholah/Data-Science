@@ -2,15 +2,11 @@ import streamlit as st
 import pickle
 import numpy as np
 
-class CustomUnpickler(pickle.Unpickler):
-
-    def find_class(self, module, name):
-        if name == 'Manager':
-            from settings import Manager
-            return Manager
-        return super().find_class(module, name)
-
-classifier = CustomUnpickler(open('classifier.pkl', 'rb')).load()
+# Fungsi untuk memuat model
+def load_model(file_path):
+    with open(file_path, 'rb') as file:
+        classifier = pickle.load(file)
+    return classifier
 
 st.title("Apakah Anda Ketergantungan Terhadap Handphone?")
 
@@ -52,6 +48,10 @@ if st.button("Cek"):
             
             # Konversi input ke format numerik
             input_data = np.array([float(input1), float(input2), float(input3), float(input4), float(input5), float(input6), float(input7)]).reshape(1, -1)
+
+            # Memuat model dari file yang diunggah
+            model_path = 'https://github.com/BaqiyatusSholah/Data-Science/blob/main/classifier.pkl'  # Lokasi file yang diunggah
+            classifier = load_model(model_path)
             
             # Melakukan prediksi
             prediction = classifier.predict(input_data)
