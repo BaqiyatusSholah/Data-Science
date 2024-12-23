@@ -50,7 +50,7 @@ if st.button("Cek"):
             input_data = np.array([float(input1), float(input2), float(input3), float(input4), float(input5), float(input6), float(input7)]).reshape(1, -1)
 
             # Memuat model dari file yang diunggah
-            model_path = 'classifier.pkl'  # Lokasi file yang diunggah
+            model_path = 'xgboost.pkl'  # Lokasi file yang diunggah
             classifier = load_model(model_path)
             
             # Melakukan prediksi
