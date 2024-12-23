@@ -14,13 +14,13 @@ st.title("Apakah Anda Ketergantungan Terhadap Handphone?")
 st.write("Masukan data pemakaian Handphone anda sehari - hari untuk mengetahui ketergantungan anda terhadap Handphone")
 
 # Membuat 5 textfield untuk input
-input1 = st.text_input("Umur", placeholder="")
-input2 = st.text_input("Jenis Kelamin", placeholder="Pria/Wanita")
-input3 = st.text_input("App Usage Time", placeholder="(min/day)")
-input4 = st.text_input("Screen On Time", placeholder=" (hours/day)")
-input5 = st.text_input("Number of Apps Installed", placeholder="")
-input6 = st.text_input("Data Usage", placeholder=" (MB/day)")
-input7 = st.text_input("Battery Drain", placeholder=" (mAh/day)")
+input6 = st.text_input("Umur", placeholder="")
+input7 = st.text_input("Jenis Kelamin", placeholder="Pria/Wanita")
+input1 = st.text_input("App Usage Time", placeholder="(min/day)")
+input2 = st.text_input("Screen On Time", placeholder=" (hours/day)")
+input4 = st.text_input("Number of Apps Installed", placeholder="")
+input5 = st.text_input("Data Usage", placeholder=" (MB/day)")
+input3 = st.text_input("Battery Drain", placeholder=" (mAh/day)")
 
 # Mapping prediksi ke pesan
 def interpret_prediction(prediction_value):
@@ -38,7 +38,7 @@ def interpret_prediction(prediction_value):
 if st.button("Cek"):
     try:
         # Validasi input - memastikan semua input diisi
-        if not (input1 and input2 and input3 and input4 and input5):
+        if not (input1 and input2 and input3 and input4 and input5 and input6 and input7):
             st.error("Harap isi semua input!")
         else:
             if input2 == "Pria" :
