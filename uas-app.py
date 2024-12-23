@@ -41,10 +41,10 @@ if st.button("Cek"):
         if not (input1 and input2 and input3 and input4 and input5 and input6 and input7):
             st.error("Harap isi semua input!")
         else:
-            if input2 == "Pria" :
-                input2 = 1
-            elif input2 == "Wanita" :
-                input2 = 0
+            if input7 == "Pria" :
+                input7 = 1
+            elif input7 == "Wanita" :
+                input7 = 0
             
             # Konversi input ke format numerik
             input_data = np.array([float(input1), float(input2), float(input3), float(input4), float(input5), float(input6), float(input7)]).reshape(1, -1)
